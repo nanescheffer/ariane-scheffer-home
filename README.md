@@ -6,17 +6,18 @@ Site institucional de Ariane Scheffer — marketing para negócios criativos.
 
 ```
 index.html          ← página principal (HTML estático)
-public/img/         ← imagens otimizadas
+sobre.html          ← página Sobre
+img/                ← imagens otimizadas
 ```
 
 ## Publicação
 
-HTML estático. Basta servir o `index.html` com os assets em `public/`.
+HTML estático. Basta servir os arquivos com os assets em `img/`.
 
 Domínio planejado: `inicio.arianescheffer.com.br`
 
 ## Pendências
 
 - Inserir depoimentos com redação original
-- Desenvolver páginas Sobre e Contato
+- Desenvolver página Contato
 - Configurar analytics e pixels antes da publicação
