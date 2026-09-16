@@ -1,25 +1,22 @@
 # Home — Ariane Scheffer
 
-Frontend em Astro para a nova home institucional de Ariane Scheffer.
+Site institucional de Ariane Scheffer — marketing para negócios criativos.
 
-## Desenvolvimento local
+## Estrutura
 
-```sh
-npm install
-npm run dev
+```
+index.html          ← página principal (HTML estático)
+public/img/         ← imagens otimizadas
 ```
 
-## Build
+## Publicação
 
-```sh
-npm run build
-```
+HTML estático. Basta servir o `index.html` com os assets em `public/`.
 
-O domínio planejado é `inicio.arianescheffer.com.br`. A publicação e a conexão do domínio serão feitas apenas após aprovação visual.
+Domínio planejado: `inicio.arianescheffer.com.br`
 
-## Conteúdo pendente
+## Pendências
 
-- substituir o espaço reservado pela fotografia original;
-- inserir os depoimentos preservando a redação original;
-- desenvolver o conteúdo definitivo das páginas FLUXOS, Sobre e Contato;
-- configurar analytics, pixels e eventos antes da publicação.
+- Inserir depoimentos com redação original
+- Desenvolver páginas Sobre e Contato
+- Configurar analytics e pixels antes da publicação

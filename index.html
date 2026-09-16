@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ariane Scheffer — Marketing para negócios criativos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;1,9..144,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #FAFAF8;
+  --fg: #000;
+  --accent: #7C3AED;
+  --accent-wash: #EDE9FE;
+  --accent-deep: #4C1D95;
+  --muted: #78716C;
+  --surface: #F0EFEB;
+  --dark: #0C0A09;
+  --display: 'Fraunces', Georgia, serif;
+  --body: 'DM Sans', system-ui, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; }
+
+html { scroll-behavior: smooth; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation: none !important; transition: none !important; }
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--body);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+a { color: inherit; }
+
+/* ─── HEADER ─── */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px clamp(20px, 5vw, 72px);
+  background: rgba(250,250,248,0.88);
+  backdrop-filter: blur(20px);
+}
+
+.logo {
+  font-family: var(--display);
+  font-size: 20px;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: -0.03em;
+}
+
+.nav { display: flex; gap: clamp(18px, 3vw, 36px); list-style: none; padding: 0; }
+
+.nav a {
+  font-size: 14px;
+  font-weight: 400;
+  text-decoration: none;
+  color: var(--muted);
+  transition: color 200ms;
+}
+
+.nav a:hover, .nav a:focus-visible { color: var(--accent); }
+
+.menu-btn {
+  display: none;
+  border: 0;
+  background: 0;
+  font-family: var(--body);
+  font-size: 14px;
+  color: var(--fg);
+  cursor: pointer;
+}
+
+/* ─── HERO ─── */
+.hero {
+  padding: clamp(32px,4vw,56px) clamp(20px,5vw,72px) clamp(48px,6vw,80px);
+}
+
+.hero-label {
+  display: inline-block;
+  margin-bottom: 24px;
+  padding: 6px 16px;
+  background: var(--accent-wash);
+  color: var(--accent-deep);
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: 100px;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  gap: clamp(32px,5vw,80px);
+  align-items: center;
+}
+
+.hero-proposition {
+  max-width: 680px;
+}
+
+.hero-headline {
+  font-family: var(--display);
+  font-size: clamp(34px, 4vw, 62px);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+  margin: 0 0 24px;
+}
+
+.hero-headline span {
+  color: var(--accent);
+}
+
+.hero-headline em {
+  font-style: italic;
+}
+
+.hero-sub {
+  max-width: 520px;
+  font-weight: 300;
+  font-size: 17px;
+  line-height: 1.6;
+  color: #44403C;
+  margin-bottom: 8px;
+}
+
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+  padding: 14px 28px;
+  background: var(--fg);
+  color: var(--bg);
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background 200ms;
+}
+
+.hero-cta:hover { background: var(--accent); }
+
+.hero-photo {
+  position: relative;
+  justify-self: end;
+  width: min(100%, 400px);
+}
+
+.hero-photo-frame {
+  aspect-ratio: 3/4;
+  border-radius: 12px;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--accent-wash) 0%, #d8b4fe 50%, var(--accent) 100%);
+  position: relative;
+}
+
+.hero-photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  mix-blend-mode: multiply;
+  opacity: 0.9;
+}
+
+.hero-photo-caption {
+  margin-top: 12px;
+  font-size: 13px;
+  color: var(--muted);
+  display: flex;
+  justify-content: space-between;
+}
+
+/* ─── SECTIONS BASE ─── */
+.section-pad {
+  padding: clamp(56px,7vw,100px) clamp(20px,5vw,72px);
+}
+
+/* ─── QUESTIONS SECTION ─── */
+.questions-section {
+  background: var(--dark);
+  color: #FAFAF8;
+  position: relative;
+}
+
+.questions-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--accent);
+}
+
+.questions-intro {
+  max-width: 680px;
+  margin-bottom: clamp(36px,4vw,56px);
+}
+
+.questions-intro h2 {
+  font-family: var(--display);
+  font-size: clamp(28px, 3vw, 46px);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin-bottom: 20px;
+}
+
+.questions-intro p {
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.65;
+  color: rgba(250,250,248,0.65);
+}
+
+.question-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px;
+}
+
+.question-card {
+  padding: clamp(24px,3vw,40px);
+  background: rgba(250,250,248,0.05);
+  font-family: var(--display);
+  font-size: clamp(20px, 2vw, 28px);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  transition: background 300ms;
+}
+
+.question-card:hover {
+  background: rgba(124,58,237,0.15);
+}
+
+.questions-after {
+  margin-top: clamp(36px,4vw,56px);
+  max-width: 720px;
+}
+
+.questions-after p {
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.65;
+  color: rgba(250,250,248,0.65);
+  margin-bottom: 14px;
+}
+
+/* ─── SERVICE SECTIONS ─── */
+.service {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(40px,6vw,100px);
+  align-items: center;
+}
+
+.service-tag {
+  display: inline-block;
+  padding: 5px 14px;
+  background: var(--accent-wash);
+  color: var(--accent-deep);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  border-radius: 100px;
+  margin-bottom: 20px;
+}
+
+.service h2 {
+  font-family: var(--display);
+  font-size: clamp(28px, 3vw, 44px);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin-bottom: 22px;
+}
+
+.service p {
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.65;
+  color: #44403C;
+  margin-bottom: 14px;
+}
+
+.service-visual {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.service-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--accent);
+  text-decoration: none;
+  transition: gap 200ms;
+}
+
+.service-link:hover { gap: 14px; }
+
+/* dimension chips */
+.dimensions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 20px 0;
+}
+
+.dimensions span {
+  padding: 10px 20px;
+  background: var(--accent-wash);
+  color: var(--accent-deep);
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: 8px;
+}
+
+/* flow steps */
+.flow-steps {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin: 20px 0;
+  padding: 16px 24px;
+  background: var(--accent-wash);
+  border-radius: 10px;
+}
+
+.flow-step {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--accent-deep);
+}
+
+.flow-arrow {
+  margin: 0 12px;
+  color: var(--accent);
+  font-size: 18px;
+}
+
+/* service visual panels */
+.visual-panel {
+  padding: clamp(32px,4vw,56px);
+  border-radius: 16px;
+  min-height: 360px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.panel-ecos {
+  background: linear-gradient(160deg, var(--accent-wash), #c4b5fd 60%, var(--accent) 100%);
+}
+
+.panel-fluxos {
+  background: linear-gradient(160deg, #fef3c7, #fbbf24 60%, #f59e0b 100%);
+}
+
+.visual-panel .panel-word {
+  font-family: var(--display);
+  font-size: clamp(48px,6vw,72px);
+  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  color: rgba(255,255,255,0.85);
+}
+
+.visual-panel p {
+  margin-top: 12px;
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.7);
+}
+
+.result-statement {
+  margin: 24px 0 16px;
+  padding: 20px 0 0;
+  border-top: 2px solid var(--accent);
+  font-family: var(--display);
+  font-size: clamp(20px, 1.8vw, 26px);
+  font-weight: 500;
+  line-height: 1.25;
+  color: var(--accent-deep);
+}
+
+/* ─── TRANSITION ─── */
+.transition-band {
+  background: var(--accent);
+  color: white;
+  text-align: center;
+}
+
+.transition-band h2 {
+  font-family: var(--display);
+  font-size: clamp(32px, 4.5vw, 64px);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  max-width: 920px;
+  margin: 0 auto 24px;
+}
+
+.transition-band p {
+  max-width: 640px;
+  margin: 0 auto;
+  font-weight: 300;
+  font-size: 17px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.8);
+}
+
+/* ─── RELATIONSHIP ─── */
+.relationship-section { background: var(--surface); }
+
+.relationship-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(32px,5vw,80px);
+  align-items: start;
+}
+
+.relationship-grid h2 {
+  font-family: var(--display);
+  font-size: clamp(28px, 3vw, 44px);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+.relationship-copy p {
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.65;
+  color: #44403C;
+  margin-bottom: 14px;
+}
+
+.solution-pair {
+  margin: 28px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.solution-row {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  font-size: 16px;
+  font-weight: 300;
+  color: #44403C;
+}
+
+.solution-row strong {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--accent);
+  min-width: 72px;
+}
+
+/* ─── TESTIMONIALS ─── */
+.testimonials-section {
+  border-top: 1px solid rgba(0,0,0,0.08);
+}
+
+.testimonials-section h2 {
+  font-family: var(--display);
+  font-size: clamp(28px, 3vw, 44px);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  max-width: 600px;
+  margin-bottom: clamp(32px,4vw,52px);
+}
+
+.testimonial-placeholder-box {
+  max-width: 600px;
+  padding: 40px;
+  border: 2px dashed rgba(0,0,0,0.12);
+  border-radius: 16px;
+  text-align: center;
+}
+
+.testimonial-placeholder-box span {
+  display: block;
+  font-family: var(--display);
+  font-size: 22px;
+  font-weight: 500;
+  font-style: italic;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.testimonial-placeholder-box p {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+/* ─── CLOSING CTA ─── */
+.closing {
+  background: var(--dark);
+  color: #FAFAF8;
+  text-align: center;
+}
+
+.closing h2 {
+  font-family: var(--display);
+  font-size: clamp(34px, 4.5vw, 66px);
+  font-weight: 500;
+  line-height: 1.04;
+  letter-spacing: -0.04em;
+  max-width: 840px;
+  margin: 0 auto 24px;
+}
+
+.closing p {
+  max-width: 600px;
+  margin: 0 auto 32px;
+  font-weight: 300;
+  font-size: 17px;
+  line-height: 1.6;
+  color: rgba(250,250,248,0.6);
+}
+
+.closing-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 36px;
+  background: var(--accent);
+  color: white;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background 200ms, transform 200ms;
+}
+
+.closing-cta:hover {
+  background: #6D28D9;
+  transform: translateY(-2px);
+}
+
+/* ─── FOOTER ─── */
+.footer {
+  padding: clamp(40px,5vw,72px) clamp(20px,5vw,72px) 24px;
+  background: #050404;
+  color: rgba(250,250,248,0.5);
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 48px;
+  margin-bottom: 48px;
+}
+
+.footer-brand .logo {
+  color: #FAFAF8;
+  font-size: 24px;
+}
+
+.footer-brand p {
+  margin-top: 12px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.footer-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+.footer-col-title {
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(250,250,248,0.3);
+  margin-bottom: 14px;
+}
+
+.footer-col a {
+  display: block;
+  font-size: 14px;
+  text-decoration: none;
+  margin-bottom: 8px;
+  transition: color 200ms;
+}
+
+.footer-col a:hover { color: var(--accent); }
+
+.footer-bottom {
+  padding-top: 20px;
+  border-top: 1px solid rgba(250,250,248,0.08);
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+}
+
+.footer-bottom a {
+  text-decoration: none;
+  transition: color 200ms;
+}
+
+.footer-bottom a:hover { color: #FAFAF8; }
+
+/* ─── DIVIDER ─── */
+.section-divider {
+  height: 1px;
+  background: rgba(0,0,0,0.08);
+  margin: 0 clamp(20px,5vw,72px);
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 860px) {
+  .hero-grid { grid-template-columns: 1fr; }
+
+  .hero-photo {
+    justify-self: start;
+    width: min(100%, 320px);
+  }
+
+  .service { grid-template-columns: 1fr; }
+
+  .service.reverse .service-visual { order: -1; }
+
+  .question-cards { grid-template-columns: 1fr; }
+
+  .relationship-grid { grid-template-columns: 1fr; }
+
+  .footer-top { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px) {
+  .nav { display: none; }
+  .nav.open { 
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--bg);
+    padding: 20px;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+  }
+  .menu-btn { display: block; }
+
+  .hero-name { font-size: clamp(48px, 14vw, 80px); }
+
+  .flow-steps { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .flow-arrow { transform: rotate(90deg); margin: 0; }
+
+  .footer-nav { grid-template-columns: 1fr 1fr; }
+  .footer-bottom { flex-direction: column; gap: 8px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <a class="logo" href="#inicio">Ariane Scheffer</a>
+  <button class="menu-btn" type="button" aria-expanded="false" aria-controls="main-nav">Menu</button>
+  <nav>
+    <ul class="nav" id="main-nav">
+      <li><a href="#inicio">Início</a></li>
+      <li><a href="https://ecos.arianescheffer.com.br">ECOS</a></li>
+      <li><a href="https://www.arianescheffer.com.br/">FLUXOS</a></li>
+      <li><a href="/sobre">Sobre</a></li>
+      <li><a href="/contato">Contato</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-grid">
+    <div class="hero-proposition">
+      <span class="hero-label">Marketing para negócios criativos</span>
+      <h1 class="hero-headline">Você sabe por que o seu trabalho vale o que vale. <span>Quem compra ainda precisa <em>descobrir.</em></span></h1>
+      <p class="hero-sub">Posicionamento, comunicação e mídia para que o valor que já existe no seu trabalho se torne visível para que as pessoas certas cheguem até ele.</p>
+      <a class="hero-cta" href="#solucoes">Conheça as soluções</a>
+    </div>
+
+    <div class="hero-photo">
+      <div class="hero-photo-frame"><img src="img/hero.jpg" alt="Ariane Scheffer" loading="eager"></div>
+      <div class="hero-photo-caption">
+        <span>Ariane Scheffer</span>
+        <span>Consultora de marketing</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUESTIONS -->
+<section class="questions-section section-pad" id="solucoes">
+  <div class="questions-intro">
+    <h2>Quando a criação se torna um negócio, outras perguntas começam a aparecer.</h2>
+    <p>Perguntas que aparecem quando o trabalho já é bom, mas ainda não é visto como deveria.</p>
+  </div>
+
+  <div class="question-cards">
+    <div class="question-card">Como apresentar o trabalho sem reduzi-lo?</div>
+    <div class="question-card">Por que as pessoas certas ainda não estão chegando?</div>
+    <div class="question-card">O que sustenta o preço e o que o comunica?</div>
+    <div class="question-card">O que acontece quando alguém se interessa?</div>
+  </div>
+
+  <div class="questions-after">
+    <p>Essas respostas raramente estão em uma única ação de marketing. Elas dependem de como oferta, comunicação, posicionamento, relações e processos trabalham juntos.</p>
+    <p>Foi a partir dessa visão que organizei duas formas de atuação: a <strong style="color:#c4b5fd;font-weight:500">ECOS</strong>, para investigar e dar direção ao negócio; e a <strong style="color:#fbbf24;font-weight:500">FLUXOS</strong>, para colocar essa direção em movimento.</p>
+  </div>
+</section>
+
+<!-- ECOS -->
+<section class="section-pad">
+  <div class="service">
+    <div>
+      <span class="service-tag">Consultoria ECOS</span>
+      <h2>Há decisões que não pedem pressa. Pedem leitura.</h2>
+      <p>A ECOS é uma consultoria para negócios criativos que precisam compreender melhor o momento em que estão antes de decidir o próximo passo.</p>
+      <p>Eu me aprofundo na marca, no mercado, na forma como o trabalho é apresentado e no percurso entre o primeiro olhar e a decisão de compra.</p>
+
+      <div class="dimensions">
+        <span>Estrutura</span>
+        <span>Comunicação</span>
+        <span>Organização</span>
+        <span>Sequência</span>
+      </div>
+
+      <p class="result-statement">Essa leitura distingue o que realmente pede atenção daquilo que apenas parece urgente.</p>
+
+      <a class="service-link" href="https://ecos.arianescheffer.com.br">Conheça a ECOS <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+    <div class="service-visual">
+      <div class="visual-panel panel-ecos">
+        <div class="panel-word">ECOS</div>
+        <p>Investigação e direção para o negócio</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRANSITION -->
+<section class="transition-band section-pad">
+  <h2>Com direção, o marketing deixa de responder a perguntas que pertencem ao negócio inteiro.</h2>
+  <p>A mídia pode ampliar o alcance de uma marca. Mas ela chega na ponta de um percurso. Antes existem escolhas de posicionamento, oferta e comunicação. Depois existem conversas e decisões. Quando essas partes se encontram, as pessoas certas chegam. E ficam.</p>
+</section>
+
+<!-- FLUXOS -->
+<section class="section-pad">
+  <div class="service reverse">
+    <div class="service-visual">
+      <div class="visual-panel panel-fluxos">
+        <div class="panel-word">FLUXOS</div>
+        <p>Movimento contínuo para a marca</p>
+      </div>
+    </div>
+    <div>
+      <span class="service-tag" style="background:#FEF3C7;color:#92400E">Assessoria FLUXOS</span>
+      <h2>Quando o trabalho já tem direção, falta criar as condições para que ele seja visto por quem vai desejá-lo.</h2>
+      <p>A FLUXOS é uma assessoria contínua para negócios criativos que já sabem o que oferecem e precisam tornar a marca visível para as pessoas certas.</p>
+      <p>Acompanho comunicação, mídia e o percurso de quem chega até a marca, do primeiro contato ao momento em que a pessoa decide que quer.</p>
+
+      <div class="flow-steps">
+        <span class="flow-step">Mensagem</span>
+        <span class="flow-arrow">→</span>
+        <span class="flow-step">Atenção</span>
+        <span class="flow-arrow">→</span>
+        <span class="flow-step">Conversa</span>
+        <span class="flow-arrow">→</span>
+        <span class="flow-step">Decisão</span>
+      </div>
+
+      <p class="result-statement" style="border-color:#F59E0B;color:#92400E">A mídia passa a trabalhar conectada à estrutura que recebe e conduz esse movimento.</p>
+
+      <a class="service-link" href="https://www.arianescheffer.com.br/" style="color:#D97706">Conheça a FLUXOS <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- RELATIONSHIP -->
+<section class="relationship-section section-pad">
+  <div class="relationship-grid">
+    <div>
+      <h2>Cada negócio chega com uma história. O ponto de partida também precisa ser particular.</h2>
+    </div>
+    <div class="relationship-copy">
+      <p>Algumas marcas precisam compreender por que um trabalho consistente ainda não é percebido como deveria. Outras já sabem o que oferecem e precisam criar as condições para serem encontradas pelas pessoas certas.</p>
+
+      <div class="solution-pair">
+        <div class="solution-row"><strong>ECOS</strong> faz as perguntas que dão direção.</div>
+        <div class="solution-row"><strong>FLUXOS</strong> acompanha as respostas quando a marca entra em movimento.</div>
+      </div>
+
+      <p>Uma solução não exige a contratação da outra. A escolha depende do momento do negócio, da estrutura que já existe e do que precisa ser construído agora.</p>
+
+      <a class="service-link" href="/contato">Entenda por onde começar <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials-section section-pad">
+  <h2>Um olhar externo alcança lugares que, de dentro, nem sempre conseguimos ver.</h2>
+  <div class="testimonial-placeholder-box">
+    <span>Depoimentos</span>
+    <p>Os relatos originais das clientes serão inseridos aqui, sem alteração de redação.</p>
+  </div>
+</section>
+
+<!-- CLOSING -->
+<section class="closing section-pad">
+  <h2>Seu trabalho não precisa depender apenas do reconhecimento espontâneo.</h2>
+  <p>Se o trabalho já existe e é consistente, mas as pessoas certas ainda não estão chegando, ou chegam e não ficam, podemos começar entendendo o momento do seu negócio.</p>
+  <a class="closing-cta" href="https://tally.so/r/J9dNA4" target="_blank" rel="noopener noreferrer">Entre em contato</a>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a class="logo" href="#inicio">Ariane Scheffer</a>
+      <p>Marketing para negócios criativos.</p>
+    </div>
+    <div class="footer-nav">
+      <div class="footer-col">
+        <div class="footer-col-title">Navegação</div>
+        <a href="#inicio">Início</a>
+        <a href="https://ecos.arianescheffer.com.br">ECOS</a>
+        <a href="https://www.arianescheffer.com.br/">FLUXOS</a>
+        <a href="/sobre">Sobre</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Canais</div>
+        <a href="https://www.instagram.com/aarianescheffer/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://www.linkedin.com/in/arianescheffer/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://tally.so/r/J9dNA4" target="_blank" rel="noopener noreferrer">Contato</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Ariane Scheffer</span>
+    <a href="#inicio">Voltar ao início</a>
+  </div>
+</footer>
+
+<script>
+const btn = document.querySelector('.menu-btn');
+const nav = document.querySelector('.nav');
+btn?.addEventListener('click', () => {
+  const open = nav.classList.toggle('open');
+  btn.setAttribute('aria-expanded', String(open));
+});
+</script>
+
+</body>
+</html>
