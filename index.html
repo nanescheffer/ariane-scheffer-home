@@ -531,27 +531,97 @@ a { color: inherit; }
   margin-bottom: clamp(32px,4vw,52px);
 }
 
-.testimonial-placeholder-box {
-  max-width: 600px;
-  padding: 40px;
-  border: 2px dashed rgba(0,0,0,0.12);
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: 1.08fr 0.92fr;
+  gap: 18px;
+  align-items: stretch;
+}
+
+.testimonial-stack {
+  display: grid;
+  gap: 18px;
+}
+
+.testimonial-card {
+  position: relative;
+  padding: clamp(24px,3vw,38px);
+  border: 1px solid rgba(0,0,0,0.1);
   border-radius: 16px;
-  text-align: center;
+  background: #fff;
 }
 
-.testimonial-placeholder-box span {
+.testimonial-card.featured {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: #23453A;
+  color: #FAFAF8;
+  border-color: #23453A;
+}
+
+.testimonial-card.ochre {
+  border-top: 4px solid #A56A24;
+}
+
+.testimonial-person {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.testimonial-person img {
+  width: 68px;
+  height: 68px;
+  flex: 0 0 68px;
+  border-radius: 50%;
+  object-fit: cover;
+  filter: saturate(0.88);
+}
+
+.testimonial-person strong {
   display: block;
-  font-family: var(--display);
-  font-size: 22px;
-  font-weight: 500;
-  font-style: italic;
-  color: var(--muted);
-  margin-bottom: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.25;
 }
 
-.testimonial-placeholder-box p {
-  font-size: 14px;
+.testimonial-person span {
+  display: block;
+  margin-top: 3px;
+  font-size: 12px;
+  line-height: 1.4;
   color: var(--muted);
+}
+
+.testimonial-card.featured .testimonial-person span {
+  color: rgba(250,250,248,0.68);
+}
+
+.testimonial-card blockquote {
+  font-family: var(--display);
+  font-size: clamp(19px,1.7vw,25px);
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: -0.015em;
+}
+
+.testimonial-card.compact blockquote {
+  font-size: clamp(17px,1.35vw,21px);
+}
+
+.testimonial-source {
+  margin-top: 24px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.testimonial-card.featured .testimonial-source {
+  color: rgba(250,250,248,0.5);
 }
 
 /* ─── CLOSING CTA ─── */
@@ -685,6 +755,8 @@ a { color: inherit; }
   .question-cards { grid-template-columns: 1fr; }
 
   .relationship-grid { grid-template-columns: 1fr; }
+
+  .testimonial-grid { grid-template-columns: 1fr; }
 
   .footer-top { grid-template-columns: 1fr; }
 }
@@ -874,9 +946,46 @@ a { color: inherit; }
 <!-- TESTIMONIALS -->
 <section class="testimonials-section section-pad">
   <h2>Um olhar externo alcança lugares que, de dentro, nem sempre conseguimos ver.</h2>
-  <div class="testimonial-placeholder-box">
-    <span>Depoimentos</span>
-    <p>Os relatos originais das clientes serão inseridos aqui, sem alteração de redação.</p>
+  <div class="testimonial-grid">
+    <article class="testimonial-card featured">
+      <div>
+        <div class="testimonial-person">
+          <img src="img/depoimento-julia.jpg" alt="Julia Demeter" loading="lazy">
+          <div>
+            <strong>Julia Demeter</strong>
+            <span>Consultora e curadora de artes · São Paulo, SP</span>
+          </div>
+        </div>
+        <blockquote>“A Ariane cuida do meu tráfego pago há anos. Posso dizer que o trabalho dela foi um marco no meu crescimento. Além de gerir os anúncios ela me estimula a criar conteúdo de qualidade, seja via YouTube, Spotify ou Instagram. Ela é super organizada e gentil; recomendo!”</blockquote>
+      </div>
+      <p class="testimonial-source">Avaliação pública no Google</p>
+    </article>
+
+    <div class="testimonial-stack">
+      <article class="testimonial-card compact">
+        <div class="testimonial-person">
+          <img src="img/depoimento-vinicius.jpg" alt="Vinícius Parisi" loading="lazy">
+          <div>
+            <strong>Vinícius Parisi</strong>
+            <span>Designer e artista visual · São Paulo, SP</span>
+          </div>
+        </div>
+        <blockquote>“Ariane sempre muito profissional e atenciosa com o trabalho que desenvolvemos, recomendo muito o seu trabalho!”</blockquote>
+        <p class="testimonial-source">Avaliação pública no Google</p>
+      </article>
+
+      <article class="testimonial-card compact ochre">
+        <div class="testimonial-person">
+          <img src="img/depoimento-dani.jpg" alt="Dani Goes" loading="lazy">
+          <div>
+            <strong>Dani Goes</strong>
+            <span>Beauty artist · Aracaju, SE</span>
+          </div>
+        </div>
+        <blockquote>“Ari é simplesmente sensacional. A atenção, cuidado, dedicação total ao serviço me passou segurança e confiança. Profissional super competente. Meu trabalho mudou totalmente depois de contratar os serviços de Ari. Fora que os resultados estão sendo gerados até hoje mesmo depois de tempos de realizar o serviço.”</blockquote>
+        <p class="testimonial-source">Avaliação pública no Google</p>
+      </article>
+    </div>
   </div>
 </section>
 
