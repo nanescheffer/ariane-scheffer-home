@@ -94,8 +94,8 @@ a { color: inherit; }
   display: inline-block;
   margin-bottom: 24px;
   padding: 6px 16px;
-  background: var(--accent-wash);
-  color: var(--accent-deep);
+  background: #E6EEE9;
+  color: #23453A;
   font-size: 13px;
   font-weight: 500;
   border-radius: 100px;
@@ -273,8 +273,8 @@ a { color: inherit; }
 .service-tag {
   display: inline-block;
   padding: 5px 14px;
-  background: var(--accent-wash);
-  color: var(--accent-deep);
+  background: #E6EEE9;
+  color: #23453A;
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.05em;
@@ -312,7 +312,7 @@ a { color: inherit; }
   margin-top: 16px;
   font-size: 14px;
   font-weight: 500;
-  color: var(--accent);
+  color: #23453A;
   text-decoration: none;
   transition: gap 200ms;
 }
@@ -343,54 +343,88 @@ a { color: inherit; }
   gap: 0;
   margin: 20px 0;
   padding: 16px 24px;
-  background: var(--accent-wash);
+  background: #F3E8D3;
   border-radius: 10px;
 }
 
 .flow-step {
   font-size: 14px;
   font-weight: 500;
-  color: var(--accent-deep);
+  color: #6F4B1E;
 }
 
 .flow-arrow {
   margin: 0 12px;
-  color: var(--accent);
+  color: #A56A24;
   font-size: 18px;
 }
 
 /* service visual panels */
 .visual-panel {
+  position: relative;
+  overflow: hidden;
   padding: clamp(32px,4vw,56px);
   border-radius: 16px;
   min-height: 360px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  background: #23453A;
 }
 
-.panel-ecos {
-  background: linear-gradient(160deg, var(--accent-wash), #c4b5fd 60%, var(--accent) 100%);
+.visual-panel > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.panel-fluxos {
-  background: linear-gradient(160deg, #fef3c7, #fbbf24 60%, #f59e0b 100%);
+.visual-panel::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+}
+
+.panel-ecos::after {
+  background: linear-gradient(180deg, rgba(14,45,37,0.05) 24%, rgba(14,45,37,0.9) 100%);
+}
+
+.panel-fluxos::after {
+  background: linear-gradient(180deg, rgba(88,54,16,0.04) 22%, rgba(102,62,17,0.88) 100%);
+}
+
+.panel-fluxos > img { object-position: center 28%; }
+
+.panel-copy {
+  position: relative;
+  z-index: 1;
+}
+
+.panel-kicker {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.78);
 }
 
 .visual-panel .panel-word {
   font-family: var(--display);
-  font-size: clamp(48px,6vw,72px);
+  font-size: clamp(44px,5vw,64px);
   font-weight: 700;
   line-height: 0.9;
   letter-spacing: -0.04em;
-  color: rgba(255,255,255,0.85);
+  color: #fff;
 }
 
 .visual-panel p {
   margin-top: 12px;
   font-size: 14px;
   font-weight: 400;
-  color: rgba(255,255,255,0.7);
+  color: rgba(255,255,255,0.82);
 }
 
 .result-statement {
@@ -733,7 +767,7 @@ a { color: inherit; }
 
   <div class="questions-after">
     <p>Essas respostas raramente estão em uma única ação de marketing. Elas dependem de como oferta, comunicação, posicionamento, relações e processos trabalham juntos.</p>
-    <p>Foi a partir dessa visão que organizei duas formas de atuação: a <strong style="color:#c4b5fd;font-weight:500">ECOS</strong>, para investigar e dar direção ao negócio; e a <strong style="color:#fbbf24;font-weight:500">FLUXOS</strong>, para colocar essa direção em movimento.</p>
+    <p>Foi a partir dessa visão que organizei duas formas de atuação: a <strong style="color:#5F8A74;font-weight:500">ECOS</strong>, para investigar e dar direção ao negócio; e a <strong style="color:#C5964A;font-weight:500">FLUXOS</strong>, para colocar essa direção em movimento.</p>
   </div>
 </section>
 
@@ -759,8 +793,12 @@ a { color: inherit; }
     </div>
     <div class="service-visual">
       <div class="visual-panel panel-ecos">
-        <div class="panel-word">ECOS</div>
-        <p>Investigação e direção para o negócio</p>
+        <img src="img/ariane-monet-masp.jpg" alt="Ariane Scheffer diante de uma obra de Claude Monet no MASP" loading="lazy">
+        <div class="panel-copy">
+          <span class="panel-kicker">Consultoria</span>
+          <div class="panel-word">ECOS</div>
+          <p>Investigação e direção para o negócio</p>
+        </div>
       </div>
     </div>
   </div>
@@ -777,12 +815,16 @@ a { color: inherit; }
   <div class="service reverse">
     <div class="service-visual">
       <div class="visual-panel panel-fluxos">
-        <div class="panel-word">FLUXOS</div>
-        <p>Movimento contínuo para a marca</p>
+        <img src="img/ariane-retrato.jpg" alt="Retrato de Ariane Scheffer" loading="lazy">
+        <div class="panel-copy">
+          <span class="panel-kicker">Assessoria</span>
+          <div class="panel-word">FLUXOS</div>
+          <p>Movimento contínuo para a marca</p>
+        </div>
       </div>
     </div>
     <div>
-      <span class="service-tag" style="background:#FEF3C7;color:#92400E">Assessoria FLUXOS</span>
+      <span class="service-tag" style="background:#F3E8D3;color:#6F4B1E">Assessoria FLUXOS</span>
       <h2>Quando o trabalho já tem direção, falta criar as condições para que ele seja visto por quem vai desejá-lo.</h2>
       <p>A FLUXOS é uma assessoria contínua para negócios criativos que já sabem o que oferecem e precisam tornar a marca visível para as pessoas certas.</p>
       <p>Acompanho comunicação, mídia e o percurso de quem chega até a marca, do primeiro contato ao momento em que a pessoa decide que quer.</p>
@@ -797,9 +839,9 @@ a { color: inherit; }
         <span class="flow-step">Decisão</span>
       </div>
 
-      <p class="result-statement" style="border-color:#F59E0B;color:#92400E">A mídia passa a trabalhar conectada à estrutura que recebe e conduz esse movimento.</p>
+      <p class="result-statement" style="border-color:#A56A24;color:#6F4B1E">A mídia passa a trabalhar conectada à estrutura que recebe e conduz esse movimento.</p>
 
-      <a class="service-link" href="https://www.arianescheffer.com.br/" style="color:#D97706">Conheça a FLUXOS <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a class="service-link" href="https://www.arianescheffer.com.br/" style="color:#A56A24">Conheça a FLUXOS <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
     </div>
   </div>
 </section>
@@ -842,7 +884,7 @@ a { color: inherit; }
 <section class="closing section-pad">
   <h2>Seu trabalho não precisa depender apenas do reconhecimento espontâneo.</h2>
   <p>Se o trabalho já existe e é consistente, mas as pessoas certas ainda não estão chegando, ou chegam e não ficam, podemos começar entendendo o momento do seu negócio.</p>
-  <a class="closing-cta" href="https://nanescheffer.wixforms.com/f/7505968077872301067" target="_blank" rel="noopener noreferrer">Entre em contato</a>
+  <a class="closing-cta" href="https://tally.so/r/J9dNA4" target="_blank" rel="noopener noreferrer">Falar com Ariane</a>
 </section>
 
 <!-- FOOTER -->
